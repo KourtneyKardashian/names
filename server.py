@@ -24,6 +24,10 @@ async def fetch_json(url: str):
 async def fetch_json_endpoint(url: str = Query(...)):
     data = await fetch_json(url)
     return data
+    
+@app.get("/")
+async def root():
+    return {"status": "ok"}
 
 if __name__ == "__main__":
     import uvicorn
